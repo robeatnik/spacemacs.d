@@ -267,11 +267,9 @@ you should place your code here."
   ;; 嗯，dotspacemacs-default-font貌似加在这里并没用，所以要改weight和width以及
   ;; powerline-scale的话一定要改init函数了？ 
 
-  ;; 实现org-mode下自动换行
-  (add-hook 'org-mode-hook (lambda ()(setq truncate-lines nil)))
   ;; set English and Chinese fonts and their sizes. from the readme of the layer
   ;; of chinese.
-  (spacemacs//set-monospaced-font "Monospace" "WenQuanYi Micro Hei Mono" 15 16)
+  (spacemacs//set-monospaced-font "Monaco" "WenQuanYi Micro Hei Mono" 15 16)
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; added by me
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -349,6 +347,25 @@ you should place your code here."
  (add-hook 'LaTeX-mode-hook
            (lambda ()
              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
+ ;; org ;;;;;;;;;;;;;;;;;;;;
+ ;; 代码块里面高亮
+ (setq org-src-fontify-natively t)
+ ;; 代码块里可直接执行,这个可行度和实用性有多少？
+ (org-babel-do-load-languages
+  'org-babel-load-languages
+  '(
+    (sh .t)
+    (python .t)
+    (R .t)
+    (C .t)
+    (C++ .t)
+    (ruby .t)
+    ))
+ ;; 实现org-mode下自动换行
+ (add-hook 'org-mode-hook (lambda ()(setq truncate-lines nil)))
+
+
+
  )
 
 ;; Do not write anything past this comment. This is where Emacs will
