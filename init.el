@@ -23,7 +23,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     ;; auto-completion 这个补全貌似太强大了一点。。连我输入过的句子都能补全qwq
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -46,6 +46,7 @@ values."
      python
      c-c++
      ess
+     html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -349,18 +350,18 @@ you should place your code here."
              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
  ;; org ;;;;;;;;;;;;;;;;;;;;
  ;; 代码块里面高亮
- (setq org-src-fontify-natively t)
+ ;; (setq org-src-fontify-natively t)
  ;; 代码块里可直接执行,这个可行度和实用性有多少？
- (org-babel-do-load-languages
-  'org-babel-load-languages
-  '(
-    (sh .t)
-    (python .t)
-    (R .t)
-    (C .t)
-    (C++ .t)
-    (ruby .t)
-    ))
+ ;; (org-babel-do-load-languages
+ ;;  'org-babel-load-languages
+ ;;  '(
+ ;;    (sh .t)
+ ;;    (python .t)
+ ;;    (R .t)
+ ;;    (C .t)
+ ;;    (C++ .t)
+ ;;    (ruby .t)
+ ;;    ))
  ;; 实现org-mode下自动换行
  (add-hook 'org-mode-hook (lambda ()(setq truncate-lines nil)))
 
