@@ -13,7 +13,7 @@ values."
    dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -27,18 +27,16 @@ values."
      ;; better-defaults
      emacs-lisp
      ;; git
-     markdown
      org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     spell-checking
+     chinese ;;没有这个就不能设定中文字体了啊喂喂
      syntax-checking
      ;; version-control
 
      ;;;;;;;;;;;;;;;;;
      mu4e ;;是不是写这个啊qwq
-     chinese
      (latex :variables
             latex-build-command "XeLaTeX"
             latex-enable-auto-fill t
@@ -47,6 +45,10 @@ values."
      c-c++
      ess
      html
+     aya-org
+     aya-latex
+     zilongshanren-org
+
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -344,26 +346,11 @@ you should place your code here."
  ;;;;;;;;;;;;; latex config ;;;;;;;;;;;;
  ;; 自动更新PDF(对tex文件做修改之后)
  (add-hook 'doc-view-minor-mode-hook 'auto-revert-mode)
- ;;
+ ;; xelatex编译，好像还没成功。。
  (add-hook 'LaTeX-mode-hook
            (lambda ()
              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
- ;; org ;;;;;;;;;;;;;;;;;;;;
- ;; 代码块里面高亮
- ;; (setq org-src-fontify-natively t)
- ;; 代码块里可直接执行,这个可行度和实用性有多少？
- ;; (org-babel-do-load-languages
- ;;  'org-babel-load-languages
- ;;  '(
- ;;    (sh .t)
- ;;    (python .t)
- ;;    (R .t)
- ;;    (C .t)
- ;;    (C++ .t)
- ;;    (ruby .t)
- ;;    ))
- ;; 实现org-mode下自动换行
- (add-hook 'org-mode-hook (lambda ()(setq truncate-lines nil)))
+
 
 
 
