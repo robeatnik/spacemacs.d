@@ -350,11 +350,12 @@ you should place your code here."
  (add-hook 'LaTeX-mode-hook
            (lambda ()
              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex --synctex=1%(mode)%' %t" TeX-run-TeX nil t))))
-
-
-
-
+ ;;;;org-mode;;;;;;;;;;;;;;;
+ ;; 设置自动换行
+ (add-hook 'org-mode-hook
+           (lambda ()
+             (setq truncate-lines nil)))
+ 
  )
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
