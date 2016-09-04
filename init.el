@@ -54,7 +54,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(fcitx)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -357,6 +357,14 @@ you should place your code here."
              (setq truncate-lines nil)))
  (global-set-key (kbd "C-SPC") 'nil)
 ;;solve Fontset `tty' does not exist while turn on emacs in terminal via `emacs -nw'
+ ;;unsolve!!
+ ;; fcitx.el ;;;;;;;;;;;;;;;;;;;
+ ;; Make sure the following comes before `(fcitx-aggressive-setup)'
+ (setq fcitx-active-evil-states '(insert emacs evil)) ; if you use hybrid mode
+ (fcitx-aggressive-setup)
+ (fcitx-prefix-keys-add "M-m") ; M-m is common in Spacemacs
+ (setq fcitx-use-dbus t) ; uncomment if you're using Linux
+
  )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
