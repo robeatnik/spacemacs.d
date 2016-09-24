@@ -167,7 +167,8 @@
               "xelatex -interaction nonstopmode -output-directory %o %f"
               "xelatex -interaction nonstopmode -output-directory %o %f"
               "xelatex -interaction nonstopmode -output-directory %o %f"
-              "rm -fr %b.out %b.log %b.tex auto"))
+              "rm -fr %b.out %b.log %b.tex auto"
+              ))
 
       (setq org-latex-listings t)
 

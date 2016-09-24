@@ -34,13 +34,10 @@ values."
      chinese ;;没有这个就不能设定中文字体了啊喂喂
      syntax-checking
      ;; version-control
-
+     java
      ;;;;;;;;;;;;;;;;;
      mu4e ;;是不是写这个啊qwq
-     (latex :variables
-            latex-build-command "XeLaTeX"
-            latex-enable-auto-fill t
-            latex-enable-folding t)
+     latex
      python
      c-c++
      ess
@@ -364,6 +361,11 @@ you should place your code here."
  (fcitx-aggressive-setup)
  (fcitx-prefix-keys-add "M-m") ; M-m is common in Spacemacs
  (setq fcitx-use-dbus t) ; uncomment if you're using Linux
+
+ ;; 新系统用了xreader来代替evince所以。。。
+ (add-hook 'LaTeX-mode-hook (lambda ()
+                              (setq TeX-view-program-list '(("Xreader" "xreader %o")))
+                              (setq TeX-view-program-selection '((output-pdf "Xreader")))))
 
  )
 ;; Do not write anything past this comment. This is where Emacs will
