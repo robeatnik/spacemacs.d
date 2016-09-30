@@ -353,8 +353,9 @@ you should place your code here."
            (lambda ()
              (setq truncate-lines nil)))
  (global-set-key (kbd "C-SPC") 'nil)
-;;solve Fontset `tty' does not exist while turn on emacs in terminal via `emacs -nw'
- ;;unsolve!!
+ ;;solve Fontset `tty' does not exist while turn on emacs in terminal via `emacs -nw'
+ ;; unsolve!!
+
  ;; fcitx.el ;;;;;;;;;;;;;;;;;;;
  ;; Make sure the following comes before `(fcitx-aggressive-setup)'
  (setq fcitx-active-evil-states '(insert emacs evil)) ; if you use hybrid mode
