@@ -1,1 +1,2 @@
 # spacemacs.d
+- [x] ss
